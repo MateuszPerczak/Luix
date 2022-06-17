@@ -8,7 +8,9 @@ const StyledWindow = styled.div`
   height: 300px;
   border-radius: 8px;
   overflow: hidden;
-  resize: both;
+  resize: ${({ resizable }) => {
+    return resizable ? "both" : "none";
+  }};
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
   position: absolute;
 `;
@@ -21,10 +23,10 @@ const StyledContent = styled.div`
   }};
 `;
 
-const Window = ({ name, icon, component }) => {
+const Window = ({ name, icon, component, resizable }) => {
   return (
     <Draggable handle={`.app-${name}`} bounds="parent">
-      <StyledWindow>
+      <StyledWindow resizable={resizable}>
         <WindowTitle name={name} icon={icon} />
         <StyledContent>{createElement(component)}</StyledContent>
       </StyledWindow>

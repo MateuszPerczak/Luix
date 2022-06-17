@@ -10,6 +10,7 @@ const apps = [
     icon: "\uE713",
     tooltip: "Settings",
     component: Dummy,
+    resizable: true,
   },
   {
     id: 1,
@@ -17,6 +18,7 @@ const apps = [
     icon: "\uE2B1",
     tooltip: "Paint",
     component: Dummy,
+    resizable: true,
   },
   {
     id: 2,
@@ -24,6 +26,7 @@ const apps = [
     icon: "\uE946",
     tooltip: "About",
     component: About,
+    resizable: false,
   },
   {
     id: 3,
@@ -31,6 +34,7 @@ const apps = [
     icon: "\uE774",
     tooltip: "IFrame",
     component: IFrame,
+    resizable: true,
   },
   {
     id: 4,
@@ -38,6 +42,7 @@ const apps = [
     icon: "\uE154",
     tooltip: "Menu",
     component: Dummy,
+    resizable: true,
   },
 ];
 
