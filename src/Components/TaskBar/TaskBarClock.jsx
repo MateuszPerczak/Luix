@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import TaskBarIcon from "./TaskBarIcon";
+import { useState, useEffect } from "react";
 
 const StyledTaskBarClock = styled.div`
   position: absolute;
@@ -16,7 +17,7 @@ const StyledTaskBarClock = styled.div`
   user-select: none;
 `;
 
-const StyledDate = styled.div`
+const StyledTime = styled.div`
   display: flex;
   flex-direction: column;
   text-align: right;
@@ -25,12 +26,38 @@ const StyledDate = styled.div`
 `;
 
 const TaskBarClock = () => {
+  const [time, setTime] = useState("00:00");
+  const [date, setDate] = useState("00/00/0000");
+
+  const getTime = () => {
+    setTime(
+      new Date().toLocaleTimeString("en-US", {
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+        hour12: false,
+      })
+    );
+    setDate(
+      new Date().toLocaleDateString("en-US", {
+        day: "numeric",
+        month: "numeric",
+        year: "numeric",
+      })
+    );
+  };
+  useEffect(() => {
+    setInterval(() => {
+      getTime();
+    }, 1000);
+  }, []);
+
   return (
     <StyledTaskBarClock>
-      <StyledDate>
-        <span>18:05</span>
-        <span>17.06.2022</span>
-      </StyledDate>
+      <StyledTime>
+        <span>{time}</span>
+        <span>{date}</span>
+      </StyledTime>
       <TaskBarIcon>&#xE121;</TaskBarIcon>
     </StyledTaskBarClock>
   );
