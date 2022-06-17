@@ -13,7 +13,7 @@ const Styles = ({ theme }) => {
         }
         body {
           font-family: "Dongle", sans-serif;
-          background-image: linear-gradient(${theme.background}, ${theme.ball});
+          background: ${theme.background};
           color: ${theme.color};
         }
         #root {

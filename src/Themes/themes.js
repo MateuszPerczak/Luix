@@ -1,16 +1,16 @@
 export const themes = {
   light: {
     color: "#000",
-    background: "#f1c40f",
-    ball: "#e74c3c",
-    board: "#fff",
-    transparentBoard: "#ffffffb5",
+    background: "#ddd",
+    ball: "#2980b9",
+    taskBar: "#ffffffb5",
+    accentBackground: "#2980b9",
   },
   dark: {
     color: "#fff",
-    background: "#f39c12",
-    ball: "#c0392b",
-    board: "#272A33",
-    transparentBoard: "#272A33b5",
+    background: "#121212",
+    ball: "#3498db",
+    taskBar: "#272A33b5",
+    accentBackground: "#3498db",
   },
 };

@@ -2,7 +2,9 @@ import Styles from "./Global/Styles";
 import { themes } from "./Themes/themes";
 import { ThemeProvider } from "@emotion/react";
 import useSystemTheme from "react-use-system-theme";
-import Game from "./Components/Game/Game";
+import Loader from "./Components/Loader/Loader";
+import Desktop from "./Components/Desktop/Desktop";
+import Ball from "./Components/Ball/Ball";
 
 const App = () => {
   const theme = useSystemTheme("dark");
@@ -10,9 +12,10 @@ const App = () => {
 
   return (
     <>
-      <Styles theme={themes.light} />
-      <ThemeProvider theme={themes.light}>
-        <Game />
+      <Styles theme={style} />
+      <ThemeProvider theme={style}>
+        <Desktop />
+        <Ball />
       </ThemeProvider>
     </>
   );
