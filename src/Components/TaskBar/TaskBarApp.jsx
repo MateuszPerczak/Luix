@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import TaskBarIcon from "./TaskBarIcon";
 
 const StyledTaskBarIcon = styled.div`
   position: relative;
@@ -6,8 +7,6 @@ const StyledTaskBarIcon = styled.div`
   align-items: center;
   justify-content: center;
   user-select: none;
-  font-family: "Segoe Fluent Icons", sans-serif;
-  font-size: 18px;
   height: 100%;
   aspect-ratio: 1;
   border-radius: 8px;
@@ -49,7 +48,7 @@ const StyledTaskBarIcon = styled.div`
 const TaskBarApp = ({ icon, tooltip, ...rest }) => {
   return (
     <StyledTaskBarIcon tooltip={tooltip} {...rest}>
-      {icon}
+      <TaskBarIcon>{icon}</TaskBarIcon>
     </StyledTaskBarIcon>
   );
 };

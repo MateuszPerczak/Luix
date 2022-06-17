@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
-import apps from "../../Apps/apps";
+import { useState } from "react";
+import localApps from "../../Apps/apps";
 import TaskBar from "../TaskBar/TaskBar";
 import WindowProvider from "../WindowProwider/WindowProvider";
 import Window from "../Window/Window";
@@ -8,14 +9,17 @@ const StyledLoader = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
-  z-index: 1;
 `;
 
 const Desktop = () => {
+  const [apps, setApps] = useState(localApps);
+
   return (
     <StyledLoader>
       <WindowProvider>
-        <Window />
+        {apps.map((app, index) => {
+          return <Window key={index} {...app} />;
+        })}
       </WindowProvider>
       <TaskBar apps={apps} />
     </StyledLoader>

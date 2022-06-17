@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import TaskBarIcon from "./TaskBarIcon";
 
 const StyledTaskBarClock = styled.div`
   position: absolute;
@@ -13,11 +14,6 @@ const StyledTaskBarClock = styled.div`
   height: 100%;
   border-radius: 8px;
   user-select: none;
-`;
-
-const TaskBarIcon = styled.span`
-  font-family: "Segoe Fluent Icons", sans-serif;
-  font-size: 18px;
 `;
 
 const StyledDate = styled.div`

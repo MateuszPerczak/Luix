@@ -1,37 +1,32 @@
 import styled from "@emotion/styled";
 import Draggable from "react-draggable";
-import TitleBar from "../TitleBar/TitleBar";
+import WindowTitle from "./WindowTitle";
+import { createElement } from "react";
 
 const StyledWindow = styled.div`
-  width: 600px;
+  width: 400px;
   height: 300px;
   border-radius: 8px;
   overflow: hidden;
-
+  resize: both;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  position: absolute;
 `;
 
 const StyledContent = styled.div`
   width: 100%;
-  height: 100%;
+  height: calc(100% - 40px);
   background-color: ${({ theme: { background } }) => {
     return background;
   }};
 `;
 
-const Window = () => {
+const Window = ({ name, icon, component }) => {
   return (
-    <Draggable
-      handle=".handle"
-      defaultPosition={{ x: 0, y: 0 }}
-      position={null}
-      scale={1}
-    >
+    <Draggable handle={`.app-${name}`} bounds="parent">
       <StyledWindow>
-        <TitleBar className="handle">
-          <span>Settings</span>
-        </TitleBar>
-        <StyledContent></StyledContent>
+        <WindowTitle name={name} icon={icon} />
+        <StyledContent>{createElement(component)}</StyledContent>
       </StyledWindow>
     </Draggable>
   );
