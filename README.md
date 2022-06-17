@@ -1,4 +1,4 @@
-# react-clock
+# LUIX
 
 ![GitHub](https://img.shields.io/github/license/MateuszPerczak/react-clock?style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/MateuszPerczak/react-clock?style=flat-square)
