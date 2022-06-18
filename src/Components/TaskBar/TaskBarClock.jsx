@@ -31,7 +31,7 @@ const TaskBarClock = () => {
 
   const getTime = () => {
     setTime(
-      new Date().toLocaleTimeString("en-US", {
+      new Date().toLocaleTimeString("pl-PL", {
         hour: "numeric",
         minute: "numeric",
         second: "numeric",
@@ -39,7 +39,7 @@ const TaskBarClock = () => {
       })
     );
     setDate(
-      new Date().toLocaleDateString("en-US", {
+      new Date().toLocaleDateString("pl-PL", {
         day: "numeric",
         month: "numeric",
         year: "numeric",

@@ -8,9 +8,6 @@ const StyledWindow = styled.div`
   height: 300px;
   border-radius: 8px;
   overflow: hidden;
-  z-index: ${({ focusedApp }) => {
-    return focusedApp ? "3" : "1";
-  }};
   resize: ${({ resizable }) => {
     return resizable ? "both" : "none";
   }};
@@ -37,23 +34,16 @@ const StyledContent = styled.div`
   }};
 `;
 
-const Window = ({
-  name,
-  icon,
-  component,
-  resizable,
-  focusedApp,
-  setFocusedApp,
-  setApps,
-}) => {
+const Window = ({ name, icon, id, component, resizable, setOpenApps }) => {
   return (
-    <Draggable handle={`.app-${name}`} bounds="parent">
-      <StyledWindow
-        resizable={resizable}
-        focusedApp={focusedApp === name}
-        onMouseDownCapture={() => setFocusedApp(name)}
-      >
-        <WindowTitle name={name} icon={icon} setApps={setApps} />
+    <Draggable handle={`.app-${id}`} bounds="parent">
+      <StyledWindow resizable={resizable}>
+        <WindowTitle
+          name={name}
+          icon={icon}
+          id={id}
+          setOpenApps={setOpenApps}
+        />
         <StyledContent>{createElement(component)}</StyledContent>
       </StyledWindow>
     </Draggable>

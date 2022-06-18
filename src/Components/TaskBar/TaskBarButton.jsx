@@ -1,27 +1,29 @@
 import styled from "@emotion/styled";
-import TaskBarIcon from "./TaskBarIcon";
 
-const StyledTaskBarIcon = styled.div`
+const TaskBarButton = styled.div`
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  user-select: none;
   height: 100%;
   aspect-ratio: 1;
+  user-select: none;
   border-radius: 8px;
   transition: transform 100ms, background 200ms;
   &:hover {
     background: ${({ theme: { taskBar } }) => {
       return taskBar;
     }};
+    backdrop-filter: blur(10px) saturate(180%);
     &:before {
+      transition-delay: 700ms;
       transform: scale(1);
     }
   }
   &:active {
     transform: scale(0.9);
     &:before {
+      transition-delay: 0ms;
       transform: scale(0);
     }
   }
@@ -37,34 +39,24 @@ const StyledTaskBarIcon = styled.div`
       return taskBar;
     }};
     width: fit-content;
-    padding: 0 8px;
+    padding: 0 10px;
     border-radius: 8px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.4);
     transition: transform 100ms;
-    transition-delay: 400ms;
-  }
-  &:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    width: ${({ isOpen, focusedApp, name }) => {
-      return isOpen ? (name === focusedApp ? "20px" : "10px") : "0";
-    }};
-    height: 3px;
-    border-radius: 2px;
-    background: ${({ theme: { accentBackground } }) => {
-      return accentBackground;
-    }};
-    transition: width 300ms;
+    backdrop-filter: blur(10px) saturate(180%);
   }
 `;
 
-const TaskBarApp = ({ icon, name, ...rest }) => {
-  return (
-    <StyledTaskBarIcon name={name} {...rest}>
-      <TaskBarIcon>{icon}</TaskBarIcon>
-    </StyledTaskBarIcon>
-  );
-};
+export default TaskBarButton;
 
-export default TaskBarApp;
+// &:before {
+//   content: "";
+//   position: absolute;
+//   bottom: 10%;
+//   width: 10px;
+//   height: 2px;
+//   border-radius: 2px;
+//   background: ${({ theme: { color } }) => {
+//     return color;
+//   }};
+// }

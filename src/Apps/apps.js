@@ -49,21 +49,21 @@ const apps = [
     resizable: true,
   },
   {
-    id: 5,
+    id: 6,
     name: "ToDos",
     icon: "\uE24A",
     tooltip: "ToDos",
     component: ToDos,
     resizable: true,
   },
-  // {
-  //   id: 5,
-  //   name: "Menu",
-  //   icon: "\uE154",
-  //   tooltip: "Menu",
-  //   component: Dummy,
-  //   resizable: true,
-  // },
+  {
+    id: 5,
+    name: "Calculator",
+    icon: "\uE1D0",
+    tooltip: "Calculator",
+    component: Dummy,
+    resizable: true,
+  },
 ];
 
 export default apps;

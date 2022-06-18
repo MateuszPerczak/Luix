@@ -11,8 +11,8 @@ const App = () => {
 
   return (
     <>
-      <Styles theme={style} />
       <ThemeProvider theme={style}>
+        <Styles />
         <Desktop />
         <Ball />
       </ThemeProvider>

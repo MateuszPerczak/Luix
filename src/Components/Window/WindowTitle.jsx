@@ -35,34 +35,30 @@ const CloseButton = styled.div`
   border-radius: 4px;
   height: 30px;
   aspect-ratio: 1;
-  transition: background 200ms;
+  transition: background 200ms, transform 200ms;
   &:hover {
-    background: ${({ theme: { taskBar } }) => {
-      return taskBar;
-    }};
+    background: #e74c3caa;
+  }
+  &:active {
+    transform: scale(0.9);
   }
 `;
 
-const WindowTitle = ({ icon, name, setApps }) => {
+const WindowTitle = ({ icon, name, id, setOpenApps }) => {
   return (
-    <StyledWindowTitle className={`app-${name}`}>
+    <StyledWindowTitle className={`app-${id}`}>
       <TitleWrapper>
         <WindowIcon>{icon}</WindowIcon>
         <span>{name}</span>
       </TitleWrapper>
-      <CloseButton>
-        <WindowIcon
-          onClick={() => {
-            setApps((apps) => {
-              const newApps = [...apps];
-              const thisApp = newApps.filter((app) => app.name === name)[0];
-              thisApp.isOpen = false;
-              return newApps;
-            });
-          }}
-        >
-          &#xE711;
-        </WindowIcon>
+      <CloseButton
+        onClick={() => {
+          setOpenApps((apps) => {
+            return apps.filter((app) => app.name !== name);
+          });
+        }}
+      >
+        <WindowIcon>&#xE711;</WindowIcon>
       </CloseButton>
     </StyledWindowTitle>
   );

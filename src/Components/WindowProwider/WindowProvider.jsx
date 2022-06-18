@@ -5,6 +5,7 @@ const WindowProvider = styled.div`
   height: 100%;
   z-index: 1;
   overflow: hidden;
+  padding: 10px;
 `;
 
 export default WindowProvider;
