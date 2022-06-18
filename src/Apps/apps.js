@@ -1,27 +1,27 @@
 import IFrame from "./IFrame/IFrame";
 import About from "./About/About";
 import Notepad from "./Notepad/Notepad";
-import Paint from "./Paint/Paint";
+import ToDos from "./ToDos/ToDos";
 
 const Dummy = () => {
   return <div>Dummy</div>;
 };
 
 const apps = [
-  {
-    id: 0,
-    name: "Settings",
-    icon: "\uE713",
-    tooltip: "Settings",
-    component: Dummy,
-    resizable: true,
-  },
+  // {
+  //   id: 0,
+  //   name: "Settings",
+  //   icon: "\uE713",
+  //   tooltip: "Settings",
+  //   component: Dummy,
+  //   resizable: true,
+  // },
   {
     id: 1,
     name: "Paint",
     icon: "\uE2B1",
     tooltip: "Paint",
-    component: Paint,
+    component: Dummy,
     resizable: true,
   },
   {
@@ -50,12 +50,20 @@ const apps = [
   },
   {
     id: 5,
-    name: "Menu",
-    icon: "\uE154",
-    tooltip: "Menu",
-    component: Dummy,
+    name: "ToDos",
+    icon: "\uE24A",
+    tooltip: "ToDos",
+    component: ToDos,
     resizable: true,
   },
+  // {
+  //   id: 5,
+  //   name: "Menu",
+  //   icon: "\uE154",
+  //   tooltip: "Menu",
+  //   component: Dummy,
+  //   resizable: true,
+  // },
 ];
 
 export default apps;
