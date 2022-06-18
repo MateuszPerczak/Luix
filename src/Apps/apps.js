@@ -1,5 +1,6 @@
 import IFrame from "./IFrame/IFrame";
 import About from "./About/About";
+import Notepad from "./Notepad/Notepad";
 
 const Dummy = () => {};
 
@@ -38,6 +39,14 @@ const apps = [
   },
   {
     id: 4,
+    name: "Notepad",
+    icon: "\uE104",
+    tooltip: "Notepad",
+    component: Notepad,
+    resizable: true,
+  },
+  {
+    id: 5,
     name: "Menu",
     icon: "\uE154",
     tooltip: "Menu",

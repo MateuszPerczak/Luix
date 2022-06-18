@@ -21,11 +21,28 @@ const StyledTaskBar = styled.nav`
   }};
 `;
 
-const TaskBar = ({ apps }) => {
+const TaskBar = ({ apps, setApps, focusedApp, setFocusedApp }) => {
+  const openApp = (app) => {
+    const oldApps = [...apps];
+    const targetApp = oldApps.find((lol) => lol === app);
+    if (!targetApp.isOpen) {
+      targetApp.isOpen = true;
+    }
+    setFocusedApp(targetApp.name);
+    setApps(oldApps);
+  };
+
   return (
     <StyledTaskBar>
       {apps.map((app, index) => {
-        return <TaskBarApp key={index} {...app} />;
+        return (
+          <TaskBarApp
+            key={index}
+            focusedApp={focusedApp}
+            {...app}
+            onClick={() => openApp(app)}
+          />
+        );
       })}
 
       <TaskBarClock />

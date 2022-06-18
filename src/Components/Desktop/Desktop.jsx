@@ -13,15 +13,28 @@ const StyledLoader = styled.div`
 
 const Desktop = () => {
   const [apps, setApps] = useState(localApps);
+  const [focusedApp, setFocusedApp] = useState(null);
 
   return (
     <StyledLoader>
       <WindowProvider>
         {apps.map((app, index) => {
-          return <Window key={index} {...app} />;
+          return app.isOpen ? (
+            <Window
+              key={index}
+              focusedApp={focusedApp}
+              setFocusedApp={setFocusedApp}
+              {...app}
+            />
+          ) : null;
         })}
       </WindowProvider>
-      <TaskBar apps={apps} />
+      <TaskBar
+        apps={apps}
+        setApps={setApps}
+        focusedApp={focusedApp}
+        setFocusedApp={setFocusedApp}
+      />
     </StyledLoader>
   );
 };

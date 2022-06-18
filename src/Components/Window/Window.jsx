@@ -8,11 +8,25 @@ const StyledWindow = styled.div`
   height: 300px;
   border-radius: 8px;
   overflow: hidden;
+  z-index: ${({ focusedApp }) => {
+    return focusedApp ? "3" : "1";
+  }};
   resize: ${({ resizable }) => {
     return resizable ? "both" : "none";
   }};
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
   position: absolute;
+  animation: fadeIn 300ms;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 `;
 
 const StyledContent = styled.div`
@@ -23,10 +37,21 @@ const StyledContent = styled.div`
   }};
 `;
 
-const Window = ({ name, icon, component, resizable }) => {
+const Window = ({
+  name,
+  icon,
+  component,
+  resizable,
+  focusedApp,
+  setFocusedApp,
+}) => {
   return (
     <Draggable handle={`.app-${name}`} bounds="parent">
-      <StyledWindow resizable={resizable}>
+      <StyledWindow
+        resizable={resizable}
+        focusedApp={focusedApp === name}
+        onMouseDownCapture={() => setFocusedApp(name)}
+      >
         <WindowTitle name={name} icon={icon} />
         <StyledContent>{createElement(component)}</StyledContent>
       </StyledWindow>

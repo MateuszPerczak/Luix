@@ -43,11 +43,25 @@ const StyledTaskBarIcon = styled.div`
     transition: transform 100ms;
     transition-delay: 400ms;
   }
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: ${({ isOpen, focusedApp, name }) => {
+      return isOpen ? (name === focusedApp ? "20px" : "10px") : "0";
+    }};
+    height: 3px;
+    border-radius: 2px;
+    background: ${({ theme: { accentBackground } }) => {
+      return accentBackground;
+    }};
+    transition: width 300ms;
+  }
 `;
 
-const TaskBarApp = ({ icon, tooltip, ...rest }) => {
+const TaskBarApp = ({ icon, name, ...rest }) => {
   return (
-    <StyledTaskBarIcon tooltip={tooltip} {...rest}>
+    <StyledTaskBarIcon name={name} {...rest}>
       <TaskBarIcon>{icon}</TaskBarIcon>
     </StyledTaskBarIcon>
   );

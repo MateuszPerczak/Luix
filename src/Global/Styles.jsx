@@ -24,6 +24,20 @@ const Styles = ({ theme }) => {
           width: 100vw;
           height: 100vh;
         }
+        ::-webkit-scrollbar {
+          width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+          background: ${theme.background};
+        }
+        ::-webkit-scrollbar-thumb {
+          background: ${theme.taskBar};
+          border-radius: 4px;
+        }
+        ::selection {
+          background: ${theme.color};
+          color: ${theme.background};
+        }
       `}
     />
   );
