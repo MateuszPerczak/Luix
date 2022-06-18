@@ -1,8 +1,11 @@
 import IFrame from "./IFrame/IFrame";
 import About from "./About/About";
 import Notepad from "./Notepad/Notepad";
+import Paint from "./Paint/Paint";
 
-const Dummy = () => {};
+const Dummy = () => {
+  return <div>Dummy</div>;
+};
 
 const apps = [
   {
@@ -18,7 +21,7 @@ const apps = [
     name: "Paint",
     icon: "\uE2B1",
     tooltip: "Paint",
-    component: Dummy,
+    component: Paint,
     resizable: true,
   },
   {

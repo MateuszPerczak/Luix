@@ -25,10 +25,7 @@ const TaskBar = ({ apps, setApps, focusedApp, setFocusedApp }) => {
   const openApp = (app) => {
     const oldApps = [...apps];
     const targetApp = oldApps.find((lol) => lol === app);
-    if (targetApp.isOpen && targetApp.name === focusedApp) {
-      targetApp.isOpen = false;
-      setFocusedApp("");
-    } else if (!targetApp.isOpen) {
+    if (!targetApp.isOpen) {
       targetApp.isOpen = true;
     }
     setFocusedApp(targetApp.name);
