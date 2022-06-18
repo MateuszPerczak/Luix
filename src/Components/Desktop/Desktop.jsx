@@ -24,6 +24,7 @@ const Desktop = () => {
               key={index}
               focusedApp={focusedApp}
               setFocusedApp={setFocusedApp}
+              setApps={setApps}
               {...app}
             />
           ) : null;

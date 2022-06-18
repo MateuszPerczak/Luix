@@ -12,6 +12,18 @@ const StyledAbout = styled.div`
 const StyledIcon = styled.span`
   font-family: "Segoe Fluent Icons", sans-serif;
   font-size: 30px;
+  animation: pulse 0.5s linear infinite;
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    80% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 `;
 
 const About = () => {

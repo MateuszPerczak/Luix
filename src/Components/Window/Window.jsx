@@ -44,6 +44,7 @@ const Window = ({
   resizable,
   focusedApp,
   setFocusedApp,
+  setApps,
 }) => {
   return (
     <Draggable handle={`.app-${name}`} bounds="parent">
@@ -52,7 +53,7 @@ const Window = ({
         focusedApp={focusedApp === name}
         onMouseDownCapture={() => setFocusedApp(name)}
       >
-        <WindowTitle name={name} icon={icon} />
+        <WindowTitle name={name} icon={icon} setApps={setApps} />
         <StyledContent>{createElement(component)}</StyledContent>
       </StyledWindow>
     </Draggable>
