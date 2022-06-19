@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
-import { useSpring } from "react-spring";
+import { useSpring, useTransition } from "react-spring";
 import TaskBarMenu from "../TaskBarMenu/TaskBarMenu";
 import TaskBarMenuItem from "../TaskBarMenu/TaskBarMenuItem";
 import TaskBarIcon from "./TaskBarIcon";
@@ -8,6 +8,7 @@ import TaskBarButton from "./TaskBarButton";
 import TaskBarClock from "./TaskBarClock";
 import TaskBarItems from "./TaskBarItems";
 import TaskBarMenuSeperator from "../TaskBarMenu/TaskBarMenuSeperator";
+import Settings from "../Settings/Settings";
 
 const StyledTaskBar = styled.div`
   position: relative;
@@ -46,6 +47,26 @@ const TaskBar = ({ apps, openApps, setOpenApps }) => {
     },
   });
 
+  const animatedItems = useSpring({
+    width: `${openApps.length * 43}px`,
+    from: {
+      width: "0px",
+    },
+  });
+
+  const animatedApps = useTransition(openApps, {
+    from: { opacity: 0, transform: "translateY(100%)" },
+    enter: { opacity: 1, transform: "translateY(0%)" },
+    leave: { opacity: 0, transform: "translateY(100%)" },
+    trail: 100,
+    config: {
+      mass: 2,
+      tension: 420,
+      friction: 30,
+    },
+    keys: (item) => item.id,
+  });
+
   const toggleMenu = () => {
     setIsOpen((wasOpen) => !wasOpen);
   };
@@ -75,13 +96,38 @@ const TaskBar = ({ apps, openApps, setOpenApps }) => {
           );
         })}
         <TaskBarMenuSeperator>
-          <TaskBarMenuItem>
+          <TaskBarMenuItem
+            onClick={() =>
+              openApp({
+                id: 0,
+                icon: "\uE115",
+                name: "Settings",
+                component: Settings,
+                tooltip: "Settings",
+                resizable: true,
+              })
+            }
+          >
             <TaskBarIcon>&#xE115;</TaskBarIcon>
           </TaskBarMenuItem>
         </TaskBarMenuSeperator>
       </TaskBarMenu>
-      <TaskBarItems>
-        {openApps.map((app) => {
+      <TaskBarItems style={animatedItems}>
+        {animatedApps((style, app) => {
+          return (
+            <TaskBarButton
+              key={app.id}
+              onContextMenu={(e) => {
+                e.preventDefault();
+              }}
+              style={style}
+              tooltip={app.tooltip}
+            >
+              <TaskBarIcon>{app.icon}</TaskBarIcon>
+            </TaskBarButton>
+          );
+        })}
+        {/* {openApps.map((app) => {
           return (
             <TaskBarButton
               key={app.id}
@@ -93,7 +139,7 @@ const TaskBar = ({ apps, openApps, setOpenApps }) => {
               <TaskBarIcon>{app.icon}</TaskBarIcon>
             </TaskBarButton>
           );
-        })}
+        })} */}
       </TaskBarItems>
       <TaskBarButton onClick={toggleMenu} tooltip="Menu">
         <TaskBarIcon>&#xE138;</TaskBarIcon>

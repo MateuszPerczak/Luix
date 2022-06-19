@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
+import { animated } from "react-spring";
 
-const TaskBarButton = styled.div`
+const TaskBarButton = styled(animated.div)`
   position: relative;
   display: flex;
   align-items: center;
