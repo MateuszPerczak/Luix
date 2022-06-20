@@ -6,25 +6,25 @@ const Dummy = () => {
 
 export const pages = [
   {
-    id: 0,
+    id: 1,
     icon: "\uE771",
     name: "Aperance",
     content: Dummy,
   },
   {
-    id: 1,
+    id: 2,
     icon: "\uE90E",
     name: "Taskbar",
     content: Taskbar,
   },
   {
-    id: 2,
+    id: 3,
     icon: "\uE74C",
     name: "Apps",
     content: Dummy,
   },
   {
-    id: 3,
+    id: 4,
     icon: "\uEA86",
     name: "Modules",
     content: Dummy,
