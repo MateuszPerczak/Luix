@@ -26,8 +26,8 @@ const StyledTime = styled.div`
 `;
 
 const TaskBarClock = () => {
-  const [time, setTime] = useState("00:00");
-  const [date, setDate] = useState("00/00/0000");
+  const [time, setTime] = useState("");
+  const [date, setDate] = useState("");
 
   const getTime = () => {
     setTime(

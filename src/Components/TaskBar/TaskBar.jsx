@@ -26,13 +26,8 @@ const StyledTaskBar = styled.div`
   height: 50px;
   z-index: 2;
   backdrop-filter: blur(10px) saturate(180%);
-  background: ${({ theme: { taskBar } }) => {
-    return taskBar;
-  }};
-  border-top: 1px solid
-    ${({ theme: { background } }) => {
-      return background;
-    }};
+  background: ${({ theme: { taskBar } }) => taskBar};
+  border-top: 1px solid ${({ theme: { background } }) => background};
 `;
 
 const TaskBar = ({ apps, openApps, setOpenApps }) => {
@@ -78,6 +73,7 @@ const TaskBar = ({ apps, openApps, setOpenApps }) => {
 
   return (
     <StyledTaskBar iconPosition={properties.iconPosition}>
+      <TaskBarClock />
       <TaskBarMenu style={animatedMenu} onClick={() => setIsOpen(false)}>
         {apps.map((app) => {
           return (
@@ -107,24 +103,10 @@ const TaskBar = ({ apps, openApps, setOpenApps }) => {
             </TaskBarButton>
           );
         })}
-        {/* {openApps.map((app) => {
-          return (
-            <TaskBarButton
-              key={app.id}
-              tooltip={app.name}
-              onContextMenu={(e) => {
-                e.preventDefault();
-              }}
-            >
-              <TaskBarIcon>{app.icon}</TaskBarIcon>
-            </TaskBarButton>
-          );
-        })} */}
       </TaskBarItems>
       <TaskBarButton onClick={toggleMenu} tooltip="Menu">
         <Icon>&#xE138;</Icon>
       </TaskBarButton>
-      <TaskBarClock />
     </StyledTaskBar>
   );
 };
