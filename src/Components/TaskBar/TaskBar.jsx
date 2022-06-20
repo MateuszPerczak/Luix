@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import Properties from "../../Contexts/Properties";
 import { useSpring, useTransition } from "react-spring";
 import TaskBarMenu from "../TaskBarMenu/TaskBarMenu";
 import TaskBarMenuItem from "../TaskBarMenu/TaskBarMenuItem";
@@ -15,7 +16,7 @@ const StyledTaskBar = styled.div`
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  justify-content: center;
+  justify-content: ${({ iconPosition }) => iconPosition};
   gap: 5px;
   padding: 5px;
   position: fixed;
@@ -36,6 +37,7 @@ const StyledTaskBar = styled.div`
 
 const TaskBar = ({ apps, openApps, setOpenApps }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { properties, setProperties } = useContext(Properties);
 
   const animatedMenu = useSpring({
     opacity: isOpen ? 1 : 0,
@@ -44,13 +46,6 @@ const TaskBar = ({ apps, openApps, setOpenApps }) => {
       mass: 1,
       tension: 500,
       friction: 30,
-    },
-  });
-
-  const animatedItems = useSpring({
-    width: `${openApps.length * 43}px`,
-    from: {
-      width: "0px",
     },
   });
 
@@ -82,12 +77,8 @@ const TaskBar = ({ apps, openApps, setOpenApps }) => {
   };
 
   return (
-    <StyledTaskBar>
-      <TaskBarMenu
-        style={animatedMenu}
-        onClick={() => setIsOpen(false)}
-        onMouseLeave={() => setIsOpen(false)}
-      >
+    <StyledTaskBar iconPosition={properties.iconPosition}>
+      <TaskBarMenu style={animatedMenu} onClick={() => setIsOpen(false)}>
         {apps.map((app) => {
           return (
             <TaskBarMenuItem key={app.id} onClick={() => openApp(app)}>
@@ -96,23 +87,12 @@ const TaskBar = ({ apps, openApps, setOpenApps }) => {
           );
         })}
         <TaskBarMenuSeperator>
-          <TaskBarMenuItem
-            onClick={() =>
-              openApp({
-                id: 0,
-                icon: "\uE115",
-                name: "Settings",
-                component: Settings,
-                tooltip: "Settings",
-                resizable: true,
-              })
-            }
-          >
+          <TaskBarMenuItem onClick={() => openApp(Settings)}>
             <TaskBarIcon>&#xE115;</TaskBarIcon>
           </TaskBarMenuItem>
         </TaskBarMenuSeperator>
       </TaskBarMenu>
-      <TaskBarItems style={animatedItems}>
+      <TaskBarItems>
         {animatedApps((style, app) => {
           return (
             <TaskBarButton

@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
-import { animated } from "react-spring";
 
-const TaskBarItems = styled(animated.div)`
+const TaskBarItems = styled.div`
   display: flex;
   gap: 5px;
   height: 100%;
