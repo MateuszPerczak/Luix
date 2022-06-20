@@ -2,7 +2,7 @@ import { createContext } from "react";
 
 const Properties = createContext({
   properties: {},
-  setIconPosition: () => {},
+  setProperties: () => {},
 });
 
 export default Properties;

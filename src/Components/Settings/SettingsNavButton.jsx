@@ -8,11 +8,14 @@ const SettingsNavButton = styled.div`
   aspect-ratio: 1;
   border-radius: 6px;
   user-select: none;
-  transition: background-color 200ms;
+  transition: background-color 200ms, transform 200ms;
   &:hover {
     background: ${({ theme: { taskBar } }) => {
       return taskBar;
     }};
+  }
+  &:active {
+    transform: scale(0.95);
   }
 `;
 

@@ -1,21 +1,12 @@
 import IFrame from "./IFrame/IFrame";
-import About from "./About/About";
 import Notepad from "./Notepad/Notepad";
 import ToDos from "./ToDos/ToDos";
 
 const Dummy = () => {
-  return <div>Dummy</div>;
+  return <div>App not ready</div>;
 };
 
 const apps = [
-  // {
-  //   id: 0,
-  //   name: "Settings",
-  //   icon: "\uE713",
-  //   tooltip: "Settings",
-  //   component: Dummy,
-  //   resizable: true,
-  // },
   {
     id: 1,
     name: "Paint",
@@ -26,14 +17,6 @@ const apps = [
   },
   {
     id: 2,
-    name: "About",
-    icon: "\uE946",
-    tooltip: "About",
-    component: About,
-    resizable: false,
-  },
-  {
-    id: 3,
     name: "IFrame",
     icon: "\uE774",
     tooltip: "IFrame",
@@ -41,7 +24,7 @@ const apps = [
     resizable: true,
   },
   {
-    id: 4,
+    id: 3,
     name: "Notepad",
     icon: "\uE104",
     tooltip: "Notepad",
@@ -49,7 +32,7 @@ const apps = [
     resizable: true,
   },
   {
-    id: 6,
+    id: 4,
     name: "ToDos",
     icon: "\uE24A",
     tooltip: "ToDos",

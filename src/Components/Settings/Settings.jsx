@@ -1,6 +1,10 @@
 import styled from "@emotion/styled";
+import { useState, createElement } from "react";
+import { pages } from "./pages";
 import SettingsNavButton from "./SettingsNavButton";
-import IconPosition from "./IconPosition";
+import SettingsNav from "./SettingsNav";
+import SettingsHeader from "./SettingsHeader";
+
 import Icon from "../Icon/Icon";
 
 const StyledSettings = styled.div`
@@ -11,26 +15,9 @@ const StyledSettings = styled.div`
   user-select: none;
 `;
 
-const SettingsNav = styled.nav`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  height: 100%;
-  width: 50px;
-  padding: 10px 0;
-`;
-
 const SettingsNavSpacer = styled.div`
   display: flex;
   flex-grow: 1;
-`;
-
-const SettingsHeader = styled.header`
-  display: flex;
-  font-size: 30px;
-  width: 100%;
-  padding: 5px 10px;
 `;
 
 const SettingsContent = styled.div`
@@ -41,28 +28,26 @@ const SettingsContent = styled.div`
 `;
 
 const SettingsApp = () => {
+  const [page, setPage] = useState(pages[0]);
+
   return (
     <StyledSettings>
       <SettingsNav>
-        <SettingsNavButton>
-          <Icon>&#xE771;</Icon>
-        </SettingsNavButton>
-        <SettingsNavButton>
-          <Icon>&#xE90E;</Icon>
-        </SettingsNavButton>
-        <SettingsNavButton>
-          <Icon>&#xE74C;</Icon>
-        </SettingsNavButton>
-        <SettingsNavButton>
-          <Icon>&#xEA86;</Icon>
-        </SettingsNavButton>
+        {pages.map((page) => {
+          return (
+            <SettingsNavButton key={page.id} onClick={() => setPage(page)}>
+              <Icon>{page.icon}</Icon>
+            </SettingsNavButton>
+          );
+        })}
         <SettingsNavSpacer />
         <SettingsNavButton>
           <Icon>&#xE946;</Icon>
         </SettingsNavButton>
       </SettingsNav>
       <SettingsContent>
-        <SettingsHeader>Aperance</SettingsHeader>
+        <SettingsHeader>{page.name}</SettingsHeader>
+        {createElement(page.content)}
       </SettingsContent>
     </StyledSettings>
   );
