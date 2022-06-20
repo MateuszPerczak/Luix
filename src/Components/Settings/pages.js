@@ -1,4 +1,5 @@
 import Taskbar from "./Pages/Taskbar";
+import Apps from "./Pages/Apps";
 
 const Dummy = () => {
   return <span>Page not ready</span>;
@@ -21,7 +22,7 @@ export const pages = [
     id: 3,
     icon: "\uE74C",
     name: "Apps",
-    content: Dummy,
+    content: Apps,
   },
   {
     id: 4,

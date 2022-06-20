@@ -16,7 +16,10 @@ const StyledLoader = styled.div`
 const Desktop = () => {
   const [apps, setApps] = useState(localApps);
   const [openApps, setOpenApps] = useState([]);
-  const [properties, setProperties] = useState({ iconPosition: "center" });
+  const [properties, setProperties] = useState({
+    iconPosition: "center",
+    apps: apps,
+  });
 
   return (
     <StyledLoader>
