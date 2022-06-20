@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
-import { useContext } from "react";
-import Propertie from "../../Contexts/Properties";
+import IconPosition from "./IconPosition";
 
 const StyledSettings = styled.div`
   display: flex;
@@ -8,37 +7,12 @@ const StyledSettings = styled.div`
   width: 100%;
   height: 100%;
   padding: 10px;
-  font-size: 20px;
-`;
-
-const StyledDiv = styled.div`
-  cursor: pointer;
-  background-color: #333;
-  &:active {
-    background-color: #444;
-  }
 `;
 
 const SettingsApp = () => {
-  const { properties, setProperties } = useContext(Propertie);
-
   return (
     <StyledSettings>
-      <StyledDiv
-        onClick={() => {
-          setProperties((prevProperties) => {
-            return {
-              ...prevProperties,
-              iconPosition:
-                prevProperties.iconPosition === "center"
-                  ? "flex-end"
-                  : "center",
-            };
-          });
-        }}
-      >
-        {properties.iconPosition}
-      </StyledDiv>
+      <IconPosition />
     </StyledSettings>
   );
 };
@@ -53,3 +27,12 @@ const Settings = {
 };
 
 export default Settings;
+
+// eslint-disable-next-line no-lone-blocks
+{
+  /* <StyledDiv
+onClick={() => {}}
+>
+{properties.iconPosition}
+</StyledDiv> */
+}

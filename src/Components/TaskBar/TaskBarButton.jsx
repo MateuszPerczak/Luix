@@ -49,15 +49,3 @@ const TaskBarButton = styled(animated.div)`
 `;
 
 export default TaskBarButton;
-
-// &:before {
-//   content: "";
-//   position: absolute;
-//   bottom: 10%;
-//   width: 10px;
-//   height: 2px;
-//   border-radius: 2px;
-//   background: ${({ theme: { color } }) => {
-//     return color;
-//   }};
-// }

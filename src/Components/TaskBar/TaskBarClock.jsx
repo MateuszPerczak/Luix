@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import TaskBarIcon from "./TaskBarIcon";
+import Icon from "../Icon/Icon";
 import { useState, useEffect } from "react";
 
 const StyledTaskBarClock = styled.div`
@@ -58,7 +58,7 @@ const TaskBarClock = () => {
         <span>{time}</span>
         <span>{date}</span>
       </StyledTime>
-      <TaskBarIcon>&#xE121;</TaskBarIcon>
+      <Icon>&#xE121;</Icon>
     </StyledTaskBarClock>
   );
 };

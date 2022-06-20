@@ -4,7 +4,7 @@ import Properties from "../../Contexts/Properties";
 import { useSpring, useTransition } from "react-spring";
 import TaskBarMenu from "../TaskBarMenu/TaskBarMenu";
 import TaskBarMenuItem from "../TaskBarMenu/TaskBarMenuItem";
-import TaskBarIcon from "./TaskBarIcon";
+import Icon from "../Icon/Icon";
 import TaskBarButton from "./TaskBarButton";
 import TaskBarClock from "./TaskBarClock";
 import TaskBarItems from "./TaskBarItems";
@@ -82,13 +82,13 @@ const TaskBar = ({ apps, openApps, setOpenApps }) => {
         {apps.map((app) => {
           return (
             <TaskBarMenuItem key={app.id} onClick={() => openApp(app)}>
-              <TaskBarIcon>{app.icon}</TaskBarIcon>
+              <Icon>{app.icon}</Icon>
             </TaskBarMenuItem>
           );
         })}
         <TaskBarMenuSeperator>
           <TaskBarMenuItem onClick={() => openApp(Settings)}>
-            <TaskBarIcon>&#xE115;</TaskBarIcon>
+            <Icon>&#xE115;</Icon>
           </TaskBarMenuItem>
         </TaskBarMenuSeperator>
       </TaskBarMenu>
@@ -103,7 +103,7 @@ const TaskBar = ({ apps, openApps, setOpenApps }) => {
               style={style}
               tooltip={app.tooltip}
             >
-              <TaskBarIcon>{app.icon}</TaskBarIcon>
+              <Icon>{app.icon}</Icon>
             </TaskBarButton>
           );
         })}
@@ -122,7 +122,7 @@ const TaskBar = ({ apps, openApps, setOpenApps }) => {
         })} */}
       </TaskBarItems>
       <TaskBarButton onClick={toggleMenu} tooltip="Menu">
-        <TaskBarIcon>&#xE138;</TaskBarIcon>
+        <Icon>&#xE138;</Icon>
       </TaskBarButton>
       <TaskBarClock />
     </StyledTaskBar>
