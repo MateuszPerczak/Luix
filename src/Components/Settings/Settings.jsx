@@ -27,12 +27,3 @@ const Settings = {
 };
 
 export default Settings;
-
-// eslint-disable-next-line no-lone-blocks
-{
-  /* <StyledDiv
-onClick={() => {}}
->
-{properties.iconPosition}
-</StyledDiv> */
-}
