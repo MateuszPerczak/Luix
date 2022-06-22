@@ -24,10 +24,4 @@ export const pages = [
     name: "Apps",
     content: Apps,
   },
-  {
-    id: 4,
-    icon: "\uEA86",
-    name: "Modules",
-    content: Dummy,
-  },
 ];

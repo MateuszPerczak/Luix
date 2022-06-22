@@ -111,8 +111,11 @@ const IFrame = () => {
           <StyledIcon>&#xE167;</StyledIcon>
           <StyledInput
             placeholder="Enter URL"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                setAddress(e.target.value);
+              }
+            }}
           />
         </AddressBar>
       </TopBar>
