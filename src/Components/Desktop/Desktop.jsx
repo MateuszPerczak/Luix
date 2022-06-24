@@ -5,6 +5,7 @@ import TaskBar from "../TaskBar/TaskBar";
 import WindowProvider from "../WindowProwider/WindowProvider";
 import Window from "../Window/Window";
 import Properties from "../../Contexts/Properties";
+import useLocalStorage from "use-local-storage";
 
 const StyledDesktop = styled.div`
   position: relative;
@@ -26,7 +27,8 @@ const StyledDesktop = styled.div`
 const Desktop = () => {
   const [apps, setApps] = useState(localApps);
   const [openApps, setOpenApps] = useState([]);
-  const [properties, setProperties] = useState({
+
+  const [properties, setProperties] = useLocalStorage("properties", {
     iconPosition: "center",
     apps: apps,
     background: {
