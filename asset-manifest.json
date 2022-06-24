@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/Luix/static/js/main.f28e079a.js",
+    "main.js": "/Luix/static/js/main.c0b2e13c.js",
     "index.html": "/Luix/index.html",
-    "main.f28e079a.js.map": "/Luix/static/js/main.f28e079a.js.map"
+    "main.c0b2e13c.js.map": "/Luix/static/js/main.c0b2e13c.js.map"
   },
   "entrypoints": [
-    "static/js/main.f28e079a.js"
+    "static/js/main.c0b2e13c.js"
   ]
 }
