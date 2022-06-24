@@ -30,7 +30,7 @@ const Desktop = () => {
     iconPosition: "center",
     apps: apps,
     background: {
-      image: "/images/background.png",
+      image: "./images/background.png",
       repeat: true,
       cover: false,
     },

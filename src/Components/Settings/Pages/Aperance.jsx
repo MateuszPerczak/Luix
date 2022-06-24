@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
-import { useContext } from "react";
+import { useContext, useRef, useState } from "react";
 import Properties from "../../../Contexts/Properties";
 import SettingContainer from "../SettingContainer";
 import SettingText from "../SettingText";
 import SettingButton from "../SettingButton";
+import Icon from "../../Icon/Icon";
 
 const StyledAperance = styled.div`
   display: flex;
@@ -13,22 +14,42 @@ const StyledAperance = styled.div`
 
 const StyledImg = styled.img`
   height: 40px;
-  width: 100%;
 `;
 
 const WallpapersWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
+  gap: 5px;
+`;
+
+const InputWrapper = styled.div`
+  display: flex;
+  gap: 5px;
+  align-items: center;
+`;
+
+const StyledInput = styled.input`
+  outline: none;
+  border: none;
+  padding: 5px;
+  height: 90%;
+  border-radius: 6px;
+  background: ${({ theme: { taskBar } }) => {
+    return taskBar;
+  }};
+  color: ${({ theme: { color } }) => {
+    return color;
+  }};
 `;
 
 const Aperance = () => {
   const { properties, setProperties } = useContext(Properties);
+  const [wallpapers, setWallpapers] = useState([
+    "./images/background.png",
+    properties.background.image,
+  ]);
 
-  const wallpapers = [
-    "/images/background.png",
-    "https://wallpaperaccess.com/full/84248.png",
-    "https://wallpaperaccess.com/full/543797.jpg",
-  ];
+  const wallpaperUrl = useRef(null);
 
   const toggleImageFit = () => {
     setProperties((oldProperties) => {
@@ -56,10 +77,17 @@ const Aperance = () => {
     });
   };
 
+  const addImage = () => {
+    setWallpapers((prevWallpapers) => {
+      return [...prevWallpapers, `${wallpaperUrl.current.value}`];
+    });
+    wallpaperUrl.current.value = "";
+  };
+
   return (
     <StyledAperance>
       <SettingContainer>
-        <SettingText>Wallpaper</SettingText>
+        <SettingText>Wallpapers</SettingText>
         <WallpapersWrapper>
           {wallpapers.map((wallpaper, index) => {
             return (
@@ -69,6 +97,16 @@ const Aperance = () => {
             );
           })}
         </WallpapersWrapper>
+      </SettingContainer>
+
+      <SettingContainer>
+        <SettingText>Add wallpaper</SettingText>
+        <InputWrapper>
+          <StyledInput placeholder="Enter URL" ref={wallpaperUrl} />
+          <SettingButton onClick={() => addImage()}>
+            <Icon>&#xE109;</Icon>
+          </SettingButton>
+        </InputWrapper>
       </SettingContainer>
       <SettingContainer>
         <SettingText>Chocse fit for your desktop image</SettingText>
