@@ -1,6 +1,7 @@
 import IFrame from "./IFrame/IFrame";
 import Notepad from "./Notepad/Notepad";
 import ToDos from "./ToDos/ToDos";
+import Paint from "./Paint/Paint";
 
 const Dummy = () => {
   return <div>App not ready</div>;
@@ -12,7 +13,7 @@ const apps = [
     name: "Paint",
     icon: "\uE2B1",
     tooltip: "Paint",
-    component: Dummy,
+    component: Paint,
     resizable: true,
   },
   {

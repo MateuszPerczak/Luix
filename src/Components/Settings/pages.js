@@ -1,16 +1,13 @@
 import Taskbar from "./Pages/Taskbar";
 import Apps from "./Pages/Apps";
-
-const Dummy = () => {
-  return <span>Page not ready</span>;
-};
+import Aperance from "./Pages/Aperance";
 
 export const pages = [
   {
     id: 1,
     icon: "\uE771",
     name: "Aperance",
-    content: Dummy,
+    content: Aperance,
   },
   {
     id: 2,

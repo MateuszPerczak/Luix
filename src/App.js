@@ -3,7 +3,6 @@ import { themes } from "./Themes/themes";
 import { ThemeProvider } from "@emotion/react";
 import useSystemTheme from "react-use-system-theme";
 import Desktop from "./Components/Desktop/Desktop";
-import Ball from "./Components/Ball/Ball";
 
 const App = () => {
   const theme = useSystemTheme("dark");
@@ -14,7 +13,6 @@ const App = () => {
       <ThemeProvider theme={style}>
         <Styles />
         <Desktop />
-        <Ball />
       </ThemeProvider>
     </>
   );
