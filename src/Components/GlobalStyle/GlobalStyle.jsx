@@ -1,6 +1,6 @@
 import { Global, css, useTheme } from "@emotion/react";
 
-const Styles = () => {
+const GlobalStyle = () => {
   const theme = useTheme();
   return (
     <Global
@@ -18,34 +18,16 @@ const Styles = () => {
           color: ${theme.color};
         }
         #root {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          width: 100vw;
+          width: 100%;
           height: 100vh;
         }
         @font-face {
           font-family: "Segoe Fluent Icons";
           src: url("./fonts/Segoe Fluent Icons.ttf") format("truetype");
         }
-        ::-webkit-scrollbar {
-          width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-          background: ${theme.background};
-        }
-        ::-webkit-scrollbar-thumb {
-          background: ${theme.taskBar};
-          border-radius: 4px;
-        }
-        ::selection {
-          background: ${theme.color};
-          color: ${theme.background};
-        }
       `}
     />
   );
 };
 
-export default Styles;
+export default GlobalStyle;

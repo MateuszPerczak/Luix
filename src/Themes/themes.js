@@ -10,9 +10,9 @@ export const themes = {
   dark: {
     color: "#fff",
     background: "#121212",
+    desktop: "#252525",
     ball: "#2c3e50",
     taskBar: "#272A33b5",
     accentBackground: "#2c3e50",
-    seperator: "#ffffff11",
   },
 };
