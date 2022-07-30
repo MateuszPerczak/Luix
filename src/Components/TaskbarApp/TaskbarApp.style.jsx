@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
-import Icon from "../Icon/Icon";
 
 const StyledTaskbarApp = styled(motion.div)`
   display: flex;
