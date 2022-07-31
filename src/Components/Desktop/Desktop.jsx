@@ -16,7 +16,16 @@ const Desktop = () => {
       name: "Clippy",
       icon: "\uE723",
     },
+    {
+      name: "Files",
+      icon: "\uE7B8",
+    },
+    {
+      name: "Clock",
+      icon: "\uE121",
+    },
   ]);
+  const [openApps, setOpenApps] = useState([]);
 
   return (
     <StyledDesktop
@@ -25,7 +34,7 @@ const Desktop = () => {
       exit={{ opacity: 0, scale: 0.5 }}
       transition={{ type: "spring", mass: 0.6, stiffness: 200, damping: 20 }}
     >
-      <Taskbar apps={apps} />
+      <Taskbar apps={apps} openApps={openApps} setOpenApps={setOpenApps} />
     </StyledDesktop>
   );
 };

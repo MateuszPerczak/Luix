@@ -17,6 +17,7 @@
     "react-dom": "^18.2.0",
     "react-draggable": "^4.4.5",
     "react-scripts": "5.0.1",
+    "react-use-measure": "^2.1.1",
     "react-use-system-theme": "^1.1.1",
     "touch": "^3.1.0",
     "use-local-storage": "^2.3.6",

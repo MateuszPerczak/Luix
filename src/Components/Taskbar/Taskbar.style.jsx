@@ -7,13 +7,31 @@ const StyledTaskbar = styled(motion.div)`
   bottom: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 4px;
+  justify-content: space-between;
   height: 50px;
   width: 100%;
   padding: 5px;
   backdrop-filter: blur(20px) saturate(180%);
   background-color: ${({ theme: { taskbar } }) => taskbar};
+`;
+
+export const StyledTaskbarLeft = styled.div`
+  width: ${({ width }) => `${width}px`};
+`;
+
+export const StyledTaskbarRight = styled.div`
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
+export const StyledTaskbarCenter = styled(motion.div)`
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
 `;
 
 export default StyledTaskbar;

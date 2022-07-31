@@ -5,9 +5,9 @@ const StyledTaskbarMenu = styled(motion.div)`
   position: absolute;
   left: 50%;
   bottom: 60px;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
-  transform: translateX(-50%);
   border-radius: 8px;
   overflow: hidden;
   background-color: ${({ theme: { taskbarMenu } }) => taskbarMenu};
