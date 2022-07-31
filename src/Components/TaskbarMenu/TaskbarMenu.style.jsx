@@ -24,4 +24,20 @@ export const StyledTaskbarApps = styled.div`
   height: 50px;
 `;
 
+export const StyledTaskbarSystemApps = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: 5px;
+  height: 50px;
+  backdrop-filter: blur(20px) saturate(180%);
+`;
+
+export const StyledTaskbarHeader = styled.span`
+  font-size: 1.3rem;
+  padding: 5px 10px;
+`;
+
 export default StyledTaskbarMenu;

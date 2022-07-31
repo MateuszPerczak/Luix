@@ -1,31 +1,10 @@
 import StyledDesktop from "./Desktop.style";
 import Taskbar from "../Taskbar/Taskbar";
-import { useState } from "react";
+import Window from "../Window/Window";
+import { useApps } from "../../Hooks/useApps";
 
 const Desktop = () => {
-  const [apps, setApps] = useState([
-    {
-      name: "Calculator",
-      icon: "\uE1D0",
-    },
-    {
-      name: "Settings",
-      icon: "\uE713",
-    },
-    {
-      name: "Clippy",
-      icon: "\uE723",
-    },
-    {
-      name: "Files",
-      icon: "\uE7B8",
-    },
-    {
-      name: "Clock",
-      icon: "\uE121",
-    },
-  ]);
-  const [openApps, setOpenApps] = useState([]);
+  const appsMenager = useApps();
 
   return (
     <StyledDesktop
@@ -34,7 +13,11 @@ const Desktop = () => {
       exit={{ opacity: 0, scale: 0.5 }}
       transition={{ type: "spring", mass: 0.6, stiffness: 200, damping: 20 }}
     >
-      <Taskbar apps={apps} openApps={openApps} setOpenApps={setOpenApps} />
+      {appsMenager.openWindows.map((app) => {
+        return <Window key={app.name} {...app} appsMenager={appsMenager} />;
+      })}
+
+      <Taskbar appsMenager={appsMenager} />
     </StyledDesktop>
   );
 };

@@ -10,28 +10,22 @@ import TaskbarClock from "../TaskbarClock/TaskbarClock";
 import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
-const Taskbar = ({ apps, openApps, setOpenApps }) => {
+const Taskbar = ({ appsMenager }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [ref, bounds] = useMeasure();
 
-  const openApp = (app) => {
-    setOpenApps((appsList) => {
-      return [...appsList, app];
-    });
-  };
-
   const openClock = () => {
-    const clock = apps.find((app) => app.name === "Clock");
-    openApp(clock);
+    const clockApp = appsMenager.systemApps.find((app) => app.name === "Clock");
+    appsMenager.openApp(clockApp);
   };
 
   return (
     <>
       <TaskbarMenu
         isOpen={isOpen}
-        apps={apps}
-        setOpenApps={setOpenApps}
+        setIsOpen={setIsOpen}
+        appsMenager={appsMenager}
         onMouseLeave={() => setIsOpen(false)}
       />
       <StyledTaskbar layout="position">
@@ -43,8 +37,15 @@ const Taskbar = ({ apps, openApps, setOpenApps }) => {
               onClick={() => setIsOpen(!isOpen)}
               key="Menu"
             />
-            {openApps.map((app) => {
-              return <TaskbarApp key={app.name} {...app} />;
+            {appsMenager.openApps.map((app) => {
+              return (
+                <TaskbarApp
+                  key={app.name}
+                  {...app}
+                  onClick={() => appsMenager.focusApp(app)}
+                  isfocused={`${app.name === appsMenager.focusedApp?.name}`}
+                />
+              );
             })}
           </AnimatePresence>
         </StyledTaskbarCenter>
