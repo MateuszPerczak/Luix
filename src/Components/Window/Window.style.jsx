@@ -31,6 +31,7 @@ export const StyledWindowTitleWrapper = styled.div`
 
 export const StyledWindowContent = styled.div`
   display: flex;
+  flex-direction: column;
   backdrop-filter: blur(20px) saturate(180%);
   height: 200px;
 `;

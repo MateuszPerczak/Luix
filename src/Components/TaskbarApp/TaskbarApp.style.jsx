@@ -10,8 +10,8 @@ const StyledTaskbarApp = styled(motion.div)`
   border-radius: 8px;
   user-select: none;
   transition: background-color 200ms;
-  background-color: ${({ theme: { taskbarApp }, isfocused }) =>
-    isfocused === "true" ? taskbarApp : "transparent"};
+  background-color: ${({ theme: { taskbarAppActive }, isfocused }) =>
+    isfocused === "true" ? taskbarAppActive : "transparent"};
   &:hover {
     background-color: ${({ theme: { taskbarApp } }) => taskbarApp};
   }

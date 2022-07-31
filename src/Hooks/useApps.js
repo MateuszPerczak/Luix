@@ -13,13 +13,25 @@ const apps = [
     name: "Files",
     icon: "\uE7B8",
   },
+  {
+    name: "Web",
+    icon: "\uE12B",
+  },
+  {
+    name: "Paint",
+    icon: "\uE2B1",
+  },
+  {
+    name: "Camera",
+    icon: "\uE722",
+  },
 ];
 
 export const useApps = () => {
   const [openApps, setOpenApps] = useState([]);
   const [focusedApp, setFocusedApp] = useState(null);
   const [openWindows, setOpenWindows] = useState([]);
-  const [installedApps, setInstalledApps] = useState(apps);
+  const [installedApps] = useState(apps);
   const systemApps = [
     {
       name: "Clock",

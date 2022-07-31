@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 const StyledTaskbarMenu = styled(motion.div)`
   position: absolute;
+  z-index: 998;
   left: 50%;
   bottom: 60px;
   transform: translateX(-50%);

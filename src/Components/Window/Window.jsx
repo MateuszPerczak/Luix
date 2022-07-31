@@ -27,7 +27,13 @@ const Window = ({ icon, name, zIndex, appsMenager }) => {
             <Icon>&#xE106;</Icon>
           </StyledWindowClose>
         </StyledWindowTitleWrapper>
-        <StyledWindowContent></StyledWindowContent>
+        <StyledWindowContent>
+          <div>App: {name}</div>
+          <div>
+            Icon: <Icon>{icon}</Icon>
+          </div>
+          <div>ZIndex: {zIndex}</div>
+        </StyledWindowContent>
       </StyledWindow>
     </Draggable>
   );
