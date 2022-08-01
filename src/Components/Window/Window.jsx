@@ -38,6 +38,7 @@ const Window = ({ icon, name, zIndex, appsManager, constraintsRef }) => {
         ...winPos,
       }}
       exit={{ opacity: 0, scale: 0.95 }}
+      isfocused={`${appsManager.focusedApp.name === name}`}
     >
       <StyledWindowTitleWrapper onPointerDown={startDrag}>
         <StyledWindowTitle>

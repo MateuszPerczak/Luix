@@ -8,10 +8,15 @@ const StyledWindow = styled(motion.div)`
   border-radius: 8px;
   overflow: hidden;
   width: 500px;
+  transition: backdrop-filter 500ms;
   background-color: ${({ theme: { taskbarMenu } }) => taskbarMenu};
-  backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: ${({ isfocused }) =>
+    isfocused === "true"
+      ? "saturate(360%) blur(10px)"
+      : "saturate(10%) blur(20px)"};
   box-shadow: 0 0 20px ${({ theme: { taskbarMenu } }) => taskbarMenu};
   border: 1px solid ${({ theme: { border } }) => border};
+  resize: both;
 `;
 
 export const StyledWindowTitle = styled.div`
@@ -38,7 +43,7 @@ export const StyledWindowContent = styled.div`
   justify-content: center;
   font-size: 4rem;
   backdrop-filter: blur(20px) saturate(180%);
-  height: 300px;
+  height: 100%;
 `;
 
 export const StyledWindowClose = styled.div`
