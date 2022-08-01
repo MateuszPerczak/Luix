@@ -1,7 +1,7 @@
 {
   "name": "luix",
-  "version": "0.1.5",
-  "homepage": "https://mateuszperczak.github.io/Luix",
+  "version": "0.1.6",
+  "homepage": "https://mateuszperczak.github.io/Luix/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.0",

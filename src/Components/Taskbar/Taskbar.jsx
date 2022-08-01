@@ -31,7 +31,10 @@ const Taskbar = ({ appsManager }) => {
       />
       <StyledTaskbar layout="position">
         <StyledTaskbarLeft width={bounds.width} />
-        <StyledTaskbarCenter>
+        <StyledTaskbarCenter
+          layout
+          transition={{ type: "spring", mass: 0.2, stiffness: 200 }}
+        >
           <AnimatePresence>
             <TaskbarApp
               icon="&#xE154;"

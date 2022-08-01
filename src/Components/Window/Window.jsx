@@ -37,7 +37,7 @@ const Window = ({ icon, name, zIndex, appsManager, constraintsRef }) => {
         scale: 1,
         ...winPos,
       }}
-      exit={{ opacity: 0, scale: 0.5 }}
+      exit={{ opacity: 0, scale: 0.95 }}
     >
       <StyledWindowTitleWrapper onPointerDown={startDrag}>
         <StyledWindowTitle>

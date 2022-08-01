@@ -29,6 +29,10 @@ const apps = [
     name: "Music",
     icon: "\uE768",
   },
+  {
+    name: "Calendar",
+    icon: "\uE1DC",
+  },
 ];
 
 export const useApps = () => {

@@ -7,7 +7,7 @@ const StyledWindow = styled(motion.div)`
   flex-direction: column;
   border-radius: 8px;
   overflow: hidden;
-  width: 300px;
+  width: 500px;
   background-color: ${({ theme: { taskbarMenu } }) => taskbarMenu};
   backdrop-filter: blur(20px) saturate(180%);
   box-shadow: 0 0 20px ${({ theme: { taskbarMenu } }) => taskbarMenu};
@@ -38,7 +38,7 @@ export const StyledWindowContent = styled.div`
   justify-content: center;
   font-size: 4rem;
   backdrop-filter: blur(20px) saturate(180%);
-  height: 200px;
+  height: 300px;
 `;
 
 export const StyledWindowClose = styled.div`
