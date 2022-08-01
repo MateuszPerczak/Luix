@@ -1,11 +1,13 @@
 export const themes = {
   light: {
     color: "#000",
-    background: "#ddd",
-    ball: "#566b7f",
-    taskBar: "#ffffffb5",
-    accentBackground: "#566b7f",
-    seperator: "#00000011",
+    background: "#eee",
+    desktop: "#ccc",
+    taskbar: "#ffffffbb",
+    taskbarApp: "#77777722",
+    taskbarAppActive: "#7777773f",
+    taskbarMenu: "#ffffffaa",
+    border: "#333",
   },
   dark: {
     color: "#fff",
@@ -15,6 +17,7 @@ export const themes = {
     taskbarApp: "#7777773f",
     taskbarAppActive: "#77777722",
     taskbarMenu: "#222222cc",
+    border: "#555",
   },
 };
 

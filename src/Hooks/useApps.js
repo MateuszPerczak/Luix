@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 const apps = [
   {
@@ -25,6 +25,10 @@ const apps = [
     name: "Camera",
     icon: "\uE722",
   },
+  {
+    name: "Music",
+    icon: "\uE768",
+  },
 ];
 
 export const useApps = () => {
@@ -32,16 +36,20 @@ export const useApps = () => {
   const [focusedApp, setFocusedApp] = useState(null);
   const [openWindows, setOpenWindows] = useState([]);
   const [installedApps] = useState(apps);
-  const systemApps = [
-    {
-      name: "Clock",
-      icon: "\uE121",
-    },
-    {
-      name: "Settings",
-      icon: "\uE713",
-    },
-  ];
+  const [windowPos, setWindowPos] = useState({});
+  const systemApps = useMemo(
+    () => [
+      {
+        name: "Clock",
+        icon: "\uE121",
+      },
+      {
+        name: "Settings",
+        icon: "\uE713",
+      },
+    ],
+    []
+  );
 
   const openApp = (app) => {
     if (openApps.find((openApp) => openApp.name === app.name)) {
@@ -93,6 +101,13 @@ export const useApps = () => {
     });
   };
 
+  const centerWindows = () => {
+    setWindowPos({ x: 0, y: 0 });
+    setTimeout(() => {
+      setWindowPos({});
+    }, 100);
+  };
+
   return {
     focusApp,
     openApps,
@@ -102,5 +117,7 @@ export const useApps = () => {
     openWindows,
     focusedApp,
     closeApp,
+    centerWindows,
+    windowPos,
   };
 };

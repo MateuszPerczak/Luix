@@ -1,4 +1,3 @@
-import Draggable from "react-draggable";
 import StyledWindow, {
   StyledWindowTitle,
   StyledWindowTitleWrapper,
@@ -7,35 +6,52 @@ import StyledWindow, {
 } from "./Window.style";
 import Icon from "../Icon/Icon";
 import Text from "../Text/Text";
+import { useDragControls } from "framer-motion";
 
-const Window = ({ icon, name, zIndex, appsMenager }) => {
+const Window = ({ icon, name, zIndex, appsManager, constraintsRef }) => {
+  const controls = useDragControls();
+
+  const winPos = appsManager.windowPos;
+
+  const startDrag = (event) => {
+    controls.start(event);
+    appsManager.focusApp({ name });
+  };
+
   return (
-    <Draggable
-      handle=".handle"
-      bounds="parent"
-      axis="both"
-      onMouseDown={() => appsMenager.focusApp({ name })}
-      enableUserSelectHack
+    <StyledWindow
+      drag
+      style={{ zIndex }}
+      dragControls={controls}
+      dragConstraints={constraintsRef}
+      dragListener={false}
+      dragElastic={0.5}
+      dragMomentum={false}
+      transition={{ type: "spring", mass: 0.6, stiffness: 200, damping: 20 }}
+      initial={{
+        opacity: 0,
+        scale: 0.95,
+      }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+        ...winPos,
+      }}
+      exit={{ opacity: 0, scale: 0.5 }}
     >
-      <StyledWindow style={{ zIndex }}>
-        <StyledWindowTitleWrapper className="handle">
-          <StyledWindowTitle>
-            <Icon>{icon}</Icon>
-            <Text>{name}</Text>
-          </StyledWindowTitle>
-          <StyledWindowClose onClick={() => appsMenager.closeApp({ name })}>
-            <Icon>&#xE106;</Icon>
-          </StyledWindowClose>
-        </StyledWindowTitleWrapper>
-        <StyledWindowContent>
-          <div>App: {name}</div>
-          <div>
-            Icon: <Icon>{icon}</Icon>
-          </div>
-          <div>ZIndex: {zIndex}</div>
-        </StyledWindowContent>
-      </StyledWindow>
-    </Draggable>
+      <StyledWindowTitleWrapper onPointerDown={startDrag}>
+        <StyledWindowTitle>
+          <Icon>{icon}</Icon>
+          <Text>{name}</Text>
+        </StyledWindowTitle>
+        <StyledWindowClose onClick={() => appsManager.closeApp({ name })}>
+          <Icon>&#xE106;</Icon>
+        </StyledWindowClose>
+      </StyledWindowTitleWrapper>
+      <StyledWindowContent>
+        <Icon>{icon}</Icon>
+      </StyledWindowContent>
+    </StyledWindow>
   );
 };
 export default Window;

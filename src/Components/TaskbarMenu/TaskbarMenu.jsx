@@ -4,9 +4,9 @@ import StyledTaskbarMenu, {
 } from "./TaskbarMenu.style";
 import TaskbarApp from "../TaskbarApp/TaskbarApp";
 
-const TaskbarMenu = ({ isOpen, setIsOpen, appsMenager, ...rest }) => {
+const TaskbarMenu = ({ isOpen, setIsOpen, appsManager, ...rest }) => {
   const openApp = (app) => {
-    appsMenager.openApp(app);
+    appsManager.openApp(app);
     setIsOpen(false);
   };
 
@@ -23,7 +23,7 @@ const TaskbarMenu = ({ isOpen, setIsOpen, appsMenager, ...rest }) => {
       {...rest}
     >
       <StyledTaskbarApps>
-        {appsMenager.installedApps.map((app, index) => {
+        {appsManager.installedApps.map((app, index) => {
           return (
             <TaskbarApp key={index} {...app} onClick={() => openApp(app)} />
           );
@@ -31,7 +31,7 @@ const TaskbarMenu = ({ isOpen, setIsOpen, appsMenager, ...rest }) => {
       </StyledTaskbarApps>
 
       <StyledTaskbarSystemApps>
-        {appsMenager.systemApps.map((app, index) => {
+        {appsManager.systemApps.map((app, index) => {
           return (
             <TaskbarApp key={index} {...app} onClick={() => openApp(app)} />
           );

@@ -7,17 +7,18 @@ import useMeasure from "react-use-measure";
 import TaskbarApp from "../TaskbarApp/TaskbarApp";
 import TaskbarMenu from "../TaskbarMenu/TaskbarMenu";
 import TaskbarClock from "../TaskbarClock/TaskbarClock";
+import TaskbarWindow from "../TaskbarWindow/TaskbarWindow";
 import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
-const Taskbar = ({ appsMenager }) => {
+const Taskbar = ({ appsManager }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [ref, bounds] = useMeasure();
 
   const openClock = () => {
-    const clockApp = appsMenager.systemApps.find((app) => app.name === "Clock");
-    appsMenager.openApp(clockApp);
+    const clockApp = appsManager.systemApps.find((app) => app.name === "Clock");
+    appsManager.openApp(clockApp);
   };
 
   return (
@@ -25,7 +26,7 @@ const Taskbar = ({ appsMenager }) => {
       <TaskbarMenu
         isOpen={isOpen}
         setIsOpen={setIsOpen}
-        appsMenager={appsMenager}
+        appsManager={appsManager}
         onMouseLeave={() => setIsOpen(false)}
       />
       <StyledTaskbar layout="position">
@@ -37,13 +38,13 @@ const Taskbar = ({ appsMenager }) => {
               onClick={() => setIsOpen(!isOpen)}
               key="Menu"
             />
-            {appsMenager.openApps.map((app) => {
+            {appsManager.openApps.map((app) => {
               return (
                 <TaskbarApp
                   key={app.name}
                   {...app}
-                  onClick={() => appsMenager.focusApp(app)}
-                  isfocused={`${app.name === appsMenager.focusedApp?.name}`}
+                  onClick={() => appsManager.focusApp(app)}
+                  isfocused={`${app.name === appsManager.focusedApp?.name}`}
                 />
               );
             })}
@@ -51,6 +52,7 @@ const Taskbar = ({ appsMenager }) => {
         </StyledTaskbarCenter>
         <StyledTaskbarRight ref={ref}>
           <TaskbarClock onClick={openClock} />
+          <TaskbarWindow onClick={appsManager.centerWindows} />
         </StyledTaskbarRight>
       </StyledTaskbar>
     </>
