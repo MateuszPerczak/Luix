@@ -2,7 +2,6 @@
 
 ![GitHub](https://img.shields.io/github/license/MateuszPerczak/LUIX?style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/MateuszPerczak/LUIX?style=flat-square)
-![GitHub branch checks state](https://img.shields.io/github/checks-status/MateuszPerczak/LUIX/master?style=flat-square)
 
 ![App prewiev](./images/app.jpg)
 
