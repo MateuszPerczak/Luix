@@ -9,7 +9,7 @@ const StyledWindow = styled(motion.div)`
   overflow: hidden;
   width: 500px;
   transition: backdrop-filter 500ms;
-  background-color: ${({ theme: { taskbarMenu } }) => taskbarMenu};
+  background-color: ${({ theme: { appContent } }) => appContent};
   backdrop-filter: ${({ isfocused }) =>
     isfocused === "true"
       ? "saturate(360%) blur(10px)"
@@ -44,6 +44,7 @@ export const StyledWindowContent = styled.div`
   font-size: 4rem;
   backdrop-filter: blur(20px) saturate(180%);
   height: 100%;
+  overflow: auto;
 `;
 
 export const StyledWindowClose = styled.div`

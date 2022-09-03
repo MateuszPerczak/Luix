@@ -1,38 +1,46 @@
 import { useState, useMemo } from "react";
-
+import Clock from "../Apps/Clock/Clock";
 const apps = [
   {
     name: "Calculator",
     icon: "\uE1D0",
+    width: 350,
+    height: 500,
   },
-  {
-    name: "Clippy",
-    icon: "\uE723",
-  },
-  {
-    name: "Files",
-    icon: "\uE7B8",
-  },
-  {
-    name: "Web",
-    icon: "\uE12B",
-  },
-  {
-    name: "Paint",
-    icon: "\uE2B1",
-  },
-  {
-    name: "Camera",
-    icon: "\uE722",
-  },
-  {
-    name: "Music",
-    icon: "\uE768",
-  },
-  {
-    name: "Calendar",
-    icon: "\uE1DC",
-  },
+  // {
+  //   name: "Clippy",
+  //   icon: "\uE723",
+  //   width: 200,
+  //   height: 800,
+  // },
+  // {
+  //   name: "Files",
+  //   icon: "\uE7B8",
+  //   width: 200,
+  //   height: 800,
+  // },
+  // {
+  //   name: "Web",
+  //   icon: "\uE12B",
+  // },
+  // {
+  //   name: "Paint",
+  //   icon: "\uE2B1",
+  // },
+  // {
+  //   name: "Camera",
+  //   icon: "\uE722",
+  // },
+  // {
+  //   name: "Music",
+  //   icon: "\uE768",
+  // },
+  // {
+  //   name: "Calendar",
+  //   icon: "\uE1DC",
+  //   width: 200,
+  //   height: 800,
+  // },
 ];
 
 export const useApps = () => {
@@ -46,10 +54,15 @@ export const useApps = () => {
       {
         name: "Clock",
         icon: "\uE121",
+        width: 450,
+        height: 250,
+        app: Clock,
       },
       {
         name: "Settings",
         icon: "\uE713",
+        width: 700,
+        height: 500,
       },
     ],
     []
@@ -106,9 +119,9 @@ export const useApps = () => {
   };
 
   const centerWindows = () => {
-    setWindowPos({ x: 0, y: 0 });
+    setWindowPos({});
     setTimeout(() => {
-      setWindowPos({});
+      setWindowPos({ x: 0, y: 0 });
     }, 100);
   };
 

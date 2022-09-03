@@ -7,6 +7,8 @@ export const themes = {
     taskbarApp: "#77777722",
     taskbarAppActive: "#7777773f",
     taskbarMenu: "#ffffffaa",
+    appContent: "#ffffffaa",
+    appElement: "#ffffff44",
     border: "#333",
   },
   dark: {
@@ -17,6 +19,8 @@ export const themes = {
     taskbarApp: "#7777773f",
     taskbarAppActive: "#77777722",
     taskbarMenu: "#222222cc",
+    appContent: "#222222dd",
+    appElement: "#11111144",
     border: "#555",
   },
 };

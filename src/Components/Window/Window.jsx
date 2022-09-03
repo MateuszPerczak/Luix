@@ -7,10 +7,19 @@ import StyledWindow, {
 import Icon from "../Icon/Icon";
 import Text from "../Text/Text";
 import { useDragControls } from "framer-motion";
+import { useState } from "react";
 
-const Window = ({ icon, name, zIndex, appsManager, constraintsRef }) => {
+const Window = ({
+  icon,
+  name,
+  app,
+  width,
+  height,
+  zIndex,
+  appsManager,
+  constraintsRef,
+}) => {
   const controls = useDragControls();
-
   const winPos = appsManager.windowPos;
 
   const startDrag = (event) => {
@@ -18,10 +27,18 @@ const Window = ({ icon, name, zIndex, appsManager, constraintsRef }) => {
     appsManager.focusApp({ name });
   };
 
+  const [drawContent, setDrawContent] = useState(false);
+
+  setTimeout(() => setDrawContent(true), 500);
+
+  console.log(constraintsRef);
+
+  const App = app;
+
   return (
     <StyledWindow
       drag
-      style={{ zIndex }}
+      style={{ zIndex, width, height }}
       dragControls={controls}
       dragConstraints={constraintsRef}
       dragListener={false}
@@ -50,7 +67,7 @@ const Window = ({ icon, name, zIndex, appsManager, constraintsRef }) => {
         </StyledWindowClose>
       </StyledWindowTitleWrapper>
       <StyledWindowContent>
-        <Icon>{icon}</Icon>
+        {drawContent ? <App /> : <Icon>{icon}</Icon>}
       </StyledWindowContent>
     </StyledWindow>
   );
