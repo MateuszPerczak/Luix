@@ -10,6 +10,7 @@ export const themes = {
     appContent: "#ffffffaa",
     appElement: "#ffffff44",
     border: "#333",
+    scroll: "#111111aa",
   },
   dark: {
     color: "#fff",
@@ -22,6 +23,7 @@ export const themes = {
     appContent: "#222222dd",
     appElement: "#11111144",
     border: "#555",
+    scroll: "#aaaaaaaa",
   },
 };
 

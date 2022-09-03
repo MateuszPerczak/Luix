@@ -25,6 +25,14 @@ const GlobalStyle = () => {
           font-family: "Segoe Fluent Icons";
           src: url("./fonts/Segoe Fluent Icons.ttf") format("truetype");
         }
+        ::-webkit-scrollbar {
+          width: 6px;
+          background-color: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+          background-color: ${theme.scroll};
+          border-radius: 10px;
+        }
       `}
     />
   );
