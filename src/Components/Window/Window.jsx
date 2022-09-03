@@ -29,7 +29,11 @@ const Window = ({
 
   const [drawContent, setDrawContent] = useState(false);
 
-  setTimeout(() => setDrawContent(true), 500);
+  setTimeout(() => {
+    if (app) {
+      setDrawContent(true);
+    }
+  }, 500);
 
   console.log(constraintsRef);
 

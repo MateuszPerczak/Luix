@@ -1,11 +1,13 @@
 import { useState, useMemo } from "react";
 import Clock from "../Apps/Clock/Clock";
+import Calculator from "../Apps/Calculator/Calculator";
 const apps = [
   {
     name: "Calculator",
     icon: "\uE1D0",
     width: 350,
     height: 500,
+    app: Calculator,
   },
   // {
   //   name: "Clippy",

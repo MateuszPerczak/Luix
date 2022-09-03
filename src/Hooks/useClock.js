@@ -42,7 +42,7 @@ const useClock = () => {
         day: "2-digit",
       })
     );
-  }, 30000);
+  }, 10000);
 
   return { isDay, time, date };
 };
